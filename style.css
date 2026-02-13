@@ -154,3 +154,21 @@ h1 {
   background: #ede5e5;
   color: #333;
 }
+
+.heart {
+  position: fixed;
+  top: -10px;
+  font-size: 24px;
+  animation: fall linear forwards;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Animation */
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+

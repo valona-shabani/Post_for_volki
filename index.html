@@ -58,45 +58,51 @@
 <script>
   const noButton = document.querySelector(".no");
 
-  const messages = [
-    "HEYYY",
-    "VOLKAAAAN",
-    "Click YES!!!",
-    "NCNCNCNC",
-    "Schade, dann wohl nein 🥺"
-  ];
+const messages = ["HEYYY", "VOLKAAAAN", "Click YES!!!", "NCNCNCNC", "Schade, dann wohl nein 🥺"];
 
-  let index = 0;
-  let moveCount = 0;
-  const maxMoves = 5;
+let index = 0;
+let moveCount = 0;
+const maxMoves = 5;
 
-  // Wenn Maus drüber geht
-  noButton.addEventListener("mouseenter", () => {
+function moveNoButton() {
+  if (moveCount >= maxMoves) return;
 
-    if (moveCount < maxMoves) {
+  noButton.textContent = messages[index];
+  index = (index + 1) % messages.length;
 
-      noButton.textContent = messages[index];
-      index = (index + 1) % messages.length;
+  const padding = 16;
+  const bw = noButton.offsetWidth;
+  const bh = noButton.offsetHeight;
 
-      const randomX = Math.random() * 120 - 60;
-      const randomY = Math.random() * 120 - 60;
+  const maxX = window.innerWidth - bw - padding;
+  const maxY = window.innerHeight - bh - padding;
 
-      noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+  const x = Math.max(padding, Math.random() * maxX);
+  const y = Math.max(padding, Math.random() * maxY);
 
-      moveCount++;
-    }
+  noButton.style.position = "fixed";
+  noButton.style.left = x + "px";
+  noButton.style.top = y + "px";
+  noButton.style.transform = "none";
 
-  });
+  moveCount++;
+}
 
-  // Wenn geklickt wird
-  noButton.addEventListener("click", () => {
+// ✅ Desktop (Maus): Hover
+noButton.addEventListener("pointerenter", (e) => {
+  if (e.pointerType === "mouse") moveNoButton();
+});
 
-    // Nur weiterleiten, wenn er nicht mehr springt
-    if (moveCount >= maxMoves) {
-      window.location.href = "no.html";
-    }
+// ✅ Mobile (Touch): Antippen
+noButton.addEventListener("pointerdown", (e) => {
+  if (e.pointerType !== "mouse" && moveCount < maxMoves) {
+    e.preventDefault();
+    moveNoButton();
+  } else if (moveCount >= maxMoves) {
+    window.location.href = "no.html";
+  }
+});
 
-  });
 
 // 💗 Herzen erstellen
 function createHeart() {

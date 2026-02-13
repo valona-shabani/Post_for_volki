@@ -119,6 +119,8 @@ h1 {
   cursor: pointer; 
   /* Maus wird zur Hand */
 
+  touch-action: manipulation;
+
   box-shadow: 0 10px 22px rgba(80, 0, 30, 0.18);
 
   transition: transform 0.2s ease; 
@@ -219,6 +221,48 @@ h1 {
 .final-image.show {
   opacity: 1;
 }
+
+/* 📱 Mobile Optimierung */
+@media (max-width: 480px) {
+  .card {
+    padding: 22px 18px 18px;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .missyou {
+    width: 140px;
+  }
+
+  .buttons {
+    flex-direction: column;   /* Buttons untereinander */
+    gap: 12px;
+  }
+
+  .btn, a.btn {
+    width: 100%;              /* Buttons volle Breite */
+    padding: 14px 16px;
+    box-sizing: border-box;
+  }
+
+  .final-image {
+    width: 85%;
+    max-width: 260px;
+  }
+
+  #typewriter {
+    font-size: 16px;
+  }
+}
+
+
 
 
 

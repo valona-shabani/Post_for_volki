@@ -173,7 +173,7 @@ h1 {
 }
 
 .letter p {
-  font-family: italic;          /* Kursiv */
+  font-style: italic;          /* Kursiv */
   color: #6e2b4a;              /* Dunkles Rosa statt Schwarz */
   line-height: 1.7;
   font-size: 17px;
@@ -200,5 +200,26 @@ h1 {
   border-radius: 18px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
+
+#typewriter {
+  white-space: pre-wrap;
+  font-style: italic;
+  color: #8c3a5f;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.signature,
+.final-image {
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.signature.show,
+.final-image.show {
+  opacity: 1;
+}
+
+
 
 

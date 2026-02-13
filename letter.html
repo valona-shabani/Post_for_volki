@@ -13,37 +13,59 @@
 
       <h1>To my love,</h1>
 
-      <p>
-        ich weiß, dass dir der V-Tag nicht besonders wichtig ist und I get it! Es ist ein sehr kapitalistisch geprägter Tag. 
-        Aber wenn man all das ausblendet, finde ich den Gedanken, dass Menschen einen Tag im Jahr ausgewählt haben, um ihn der Liebe zu widmen, schon irgendwo sehr süß.
-      </p>
-
-      <p>
-        Jemanden zu lieben war für mich lange echt scaryyy (insert my accent). Aber dich zu lieben war super einfach. Und von dir geliebt zu werden, fühlt sich genauso leicht an. 
-        Ich hätte mir nicht vorstellen können, dass sich das so natürlich anfühlen kann. 
-      </p>
-
-      <p>
-        Obwohl ich mich früher lustig gemacht habe über Menschen, die so ein riesen Ding aus Liebe gemacht haben, I get it now. 
-        Es ist wirklich so deep und besonders (und das wegen dir).
-     </p>
-
-     <p>
-        Ich hoffe unsere Liebe macht dich genauso happy, wie es mich jeden Tag macht!
-        Seni cok seviyorum, mein Herz. 
-    </p>
-
-    <p>Gönn dir heute etwas Süßes, es geht auf mich.</p>
+      <p id="typewriter"></p>
 
 
-      <p class="signature">
+      <p class="signature" id="signature" style="display:none;">
         Truly yours, V 
       </p>
 
       <!-- 💗 Bild unter der Signatur -->
-      <img class="final-image" src="assets/final.jpeg" alt="Us" />
+      <img id="finalImage" class="final-image" src="assets/final.jpeg" alt="Us" style="display: none;"/>
 
     </section>
   </main>
+  <script>
+
+    const text = `ich weiß, dass dir der V-Tag nicht besonders wichtig ist und I get it! Es ist ein sehr kapitalistisch geprägter Tag. 
+Aber wenn man all das ausblendet, finde ich den Gedanken, dass Menschen einen Tag im Jahr ausgewählt haben, um ihn der Liebe zu widmen, schon irgendwo sehr süß.
+
+Jemanden zu lieben war für mich lange echt scaryyy (insert my accent). Aber dich zu lieben war super einfach. Und von dir geliebt zu werden, fühlt sich genauso leicht an. 
+Ich hätte mir nicht vorstellen können, dass sich das so natürlich anfühlen kann. 
+
+Obwohl ich mich früher lustig gemacht habe über Menschen, die so ein riesen Ding aus Liebe gemacht haben, I get it now. 
+Es ist wirklich so deep und besonders (und das wegen dir).
+
+Ich hoffe unsere Liebe macht dich genauso happy, wie es mich jeden Tag macht!
+
+Gönn dir heute etwas Süßes, es geht auf mich.
+Seni cok seviyorum, mein Herz.`;
+
+
+  const speed = 60;
+  let i = 0;
+
+  function typeWriter() {
+    if (i < text.length) {
+      document.getElementById("typewriter").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    } else {
+      // ✅ erst am Ende einblenden
+      const sig = document.getElementById("signature");
+      const img = document.getElementById("finalImage");
+
+      sig.style.display = "block";
+      img.style.display = "block";
+
+      sig.classList.add("show");
+      img.classList.add("show");
+    }
+  }
+
+  window.onload = typeWriter;
+
+  </script>
+
 </body>
 </html>

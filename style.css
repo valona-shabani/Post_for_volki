@@ -172,3 +172,33 @@ h1 {
   }
 }
 
+.letter p {
+  font-family: italic;          /* Kursiv */
+  color: #6e2b4a;              /* Dunkles Rosa statt Schwarz */
+  line-height: 1.7;
+  font-size: 17px;
+  margin: 18px 0;
+}
+
+.letter h1 {
+  color: #b01357;
+  margin-bottom: 25px;
+}
+
+.signature {
+  margin-top: 30px;
+  font-style: italic;
+  font-weight: 600;
+  color: #b01357;
+  font-size: 18px;
+}
+
+.final-image {
+  display: block;
+  margin: 30px auto 0;  /* Abstand nach oben + zentriert */
+  width: 200px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+

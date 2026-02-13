@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Titel im Browser-Tab -->
-    <title>💗 POST FOR VOLKAN 💗</title>
+    <title>💗 POST FOR VOLKI 💗</title>
 
     <!-- Verknüpfung zur CSS-Datei -->
     <link rel="stylesheet" href="style.css" />
@@ -26,7 +26,7 @@
         <img class="missyou" src="assets/missyou.jpeg" alt="MISSYOU" />
 
         <!-- Hauptüberschrift -->
-         <h1>Hi my love!</h1>
+         <h1>Hi zemer!</h1>
 
         <!-- Untertitel -->
         <p class="subtitle"> Do you miss me already?</p>
@@ -41,14 +41,62 @@
           </button>
 
           <!-- NO Button -->
-          <button class="btn no" type="button">
-            NO - ich bin ein loser
-          </button>
+         <button class="btn no" type="button">
+        NO - ich bin ein loser
+        </button>
+
+
 
         </div>
 
       </section>
     </main>
 
+
+<script>
+  const noButton = document.querySelector(".no");
+
+  const messages = [
+    "HEYYY",
+    "VOLKAAAAN",
+    "Click YES!!!",
+    "NCNCNCNC",
+    "Schade, dann wohl nein 🥺"
+  ];
+
+  let index = 0;
+  let moveCount = 0;
+  const maxMoves = 5;
+
+  // Wenn Maus drüber geht
+  noButton.addEventListener("mouseenter", () => {
+
+    if (moveCount < maxMoves) {
+
+      noButton.textContent = messages[index];
+      index = (index + 1) % messages.length;
+
+      const randomX = Math.random() * 120 - 60;
+      const randomY = Math.random() * 120 - 60;
+
+      noButton.style.transform = `translate(${randomX}px, ${randomY}px)`;
+
+      moveCount++;
+    }
+
+  });
+
+  // Wenn geklickt wird
+  noButton.addEventListener("click", () => {
+
+    // Nur weiterleiten, wenn er nicht mehr springt
+    if (moveCount >= maxMoves) {
+      window.location.href = "no.html";
+    }
+
+  });
+</script>
+
   </body>
+
 </html>

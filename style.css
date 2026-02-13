@@ -121,9 +121,20 @@ h1 {
 
   box-shadow: 0 10px 22px rgba(80, 0, 30, 0.18);
 
-  transition: transform 0.08s ease; 
+  transition: transform 0.2s ease; 
+  position: relative;
   /* Kleine Animation beim Klicken */
+  
 }
+
+
+  a.btn {
+  text-decoration: none;   /* entfernt Unterstrich */
+  display: inline-block;   /* verhält sich wie Button */
+  color: inherit;          /* übernimmt Button-Farbe */
+  
+}
+
 
 .btn:active {
   transform: translateY(1px);
